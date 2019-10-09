@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">My Menu</string>
+
+    <string name="error_email_app_not_available">The email app is not available</string>
+    <string name="error_phone_app_not_available">The phone is not available</string>
+    <string name="error_web_app_not_available">The browser is not available</string>
+    <string name="invalid_fields">Unexpected error</string>
+    <string name="invalid_email">Not a valid email</string>
+    <string name="invalid_password">Password must be at least 6 characters</string>
+    <string name="invalid_confirm_password">Your confirmation password does not match</string>
+    <string name="invalid_phone">Not a valid phone</string>
+    <string name="invalid_firstname">Not a valid First name. Only letters are allowed.</string>
+    <string name="invalid_lastname">Not a valid Last name. Only letters are allowed.</string>
+    <string name="invalid_empty">All fields are required</string>
+    <string name="session_expired">Session expired. Please re-login to renew your session.</string>
+    <string name="session_empty">You are not logged in. Please login and try again.</string>
+    <string name="error_unexpected">Unexpected error</string>
+    <string name="error_no_internet">Network Connection error, please try again.</string>
+    <string name="forgot_pass_title">Forgot your password?</string>
+
+</resources>

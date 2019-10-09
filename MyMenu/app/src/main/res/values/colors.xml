@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#008577</color>
+    <color name="colorSecondary">#26C6DA</color>
+
+    <!-- Texts -->
+    <color name="colorTextPrimary">#deffffff</color>
+    <color name="colorTextSecondary">#91ffffff</color>
+    <color name="colorTextTertiary">#61ffffff</color>
+
+    <color name="colorTextPrimaryBlack">#de000000</color>
+    <color name="colorTextSecondaryBlack">#8a000000</color>
+    <color name="colorTextTertiaryBlack">#42000000</color>
+
+    <color name="colorTabUnselected">#C2C4CE</color>
+
+    <!-- Background -->
+    <color name="colorLightBackground">#f3f3f3</color>
+    <color name="colorTranslucentBlack">#99000000</color>
+    <color name="colorDisabled">#d0d0d0</color>
+    <color name="colorQubitWelcomeBackground">#002147</color>
+    <color name="colorEmptyStateBackground">#dddddd</color>
+    <color name="colorPrimaryDark">#020A38</color>
+
+    <!-- Base -->
+    <color name="colorRed">#d11000</color>
+    <color name="colorGreen">#1A9A15</color>
+    <color name="colorYellow">#fdd835</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorTransparent">#00000000</color>
+
+</resources>
