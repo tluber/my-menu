@@ -15,8 +15,9 @@
             android:supportsRtl="true"
             android:theme="@style/AppThemeLight.NoActionBar"
             android:usesCleartextTraffic="true">
+        <activity android:name=".presentation.ui.details.DetailDishActivity"></activity>
         <activity
-                android:name=".presentation.ui.access.MenuActivity"
+                android:name=".presentation.ui.menu.MenuActivity"
                 android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

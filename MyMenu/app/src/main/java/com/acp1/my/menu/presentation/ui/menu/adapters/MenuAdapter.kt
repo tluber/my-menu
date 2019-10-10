@@ -1,12 +1,12 @@
-package com.acp1.my.menu.presentation.ui.access.adapters
+package com.acp1.my.menu.presentation.ui.menu.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.acp1.my.menu.R
 import com.acp1.my.menu.data.local.model.Category
-import com.acp1.my.menu.presentation.ui.access.adapters.viewholders.CategoryViewHolder
-import com.acp1.my.menu.presentation.ui.access.adapters.viewholders.ItemListener
+import com.acp1.my.menu.presentation.ui.menu.adapters.viewholders.CategoryViewHolder
+import com.acp1.my.menu.presentation.ui.menu.adapters.viewholders.ItemListener
 
 class MenuAdapter(
     private var categoryList: List<Category> = listOf(),

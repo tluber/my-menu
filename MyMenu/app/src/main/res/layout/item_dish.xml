@@ -7,12 +7,36 @@
 
     <TextView
             android:id="@+id/dishNameTextView"
+            style="@style/SectionTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginStart="@dimen/x12"
+            android:layout_marginTop="@dimen/x16"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="@tools:sample/full_names" />
+
+    <TextView
+            android:id="@+id/priceTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/x12"
+            android:layout_marginTop="8dp"
+            tools:text="@string/sample_price"
+            android:textSize="@dimen/s16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dishNameTextView" />
+
+    <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/x12"
+            android:layout_marginTop="@dimen/x16"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/priceTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

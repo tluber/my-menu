@@ -18,4 +18,6 @@
     <string name="error_no_internet">Network Connection error, please try again.</string>
     <string name="forgot_pass_title">Forgot your password?</string>
 
+    <string name="sample_price">$100</string>
+
 </resources>

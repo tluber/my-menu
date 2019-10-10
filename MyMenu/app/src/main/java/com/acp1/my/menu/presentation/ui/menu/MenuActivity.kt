@@ -1,4 +1,4 @@
-package com.acp1.my.menu.presentation.ui.access
+package com.acp1.my.menu.presentation.ui.menu
 
 import android.content.Context
 import android.content.Intent
@@ -10,9 +10,10 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.acp1.my.menu.R
 import com.acp1.my.menu.data.local.model.Dish
-import com.acp1.my.menu.presentation.ui.access.adapters.MenuAdapter
-import com.acp1.my.menu.presentation.ui.access.adapters.viewholders.ItemListener
+import com.acp1.my.menu.presentation.ui.menu.adapters.MenuAdapter
+import com.acp1.my.menu.presentation.ui.menu.adapters.viewholders.ItemListener
 import com.acp1.my.menu.presentation.ui.base.BaseActivity
+import com.acp1.my.menu.presentation.ui.details.DetailDishActivity
 import com.acp1.my.menu.utils.extensions.gone
 import com.acp1.my.menu.utils.extensions.setupSnackbar
 import com.acp1.my.menu.utils.extensions.setupToast
@@ -37,7 +38,7 @@ class MenuActivity : BaseActivity() {
     private val itemListener: ItemListener = (object :
         ItemListener {
         override fun showDish(dish: Dish) {
-
+            startActivity(DetailDishActivity.newIntent(this@MenuActivity, dish))
         }
     })
     private val menuAdapter = MenuAdapter(listener = itemListener)
