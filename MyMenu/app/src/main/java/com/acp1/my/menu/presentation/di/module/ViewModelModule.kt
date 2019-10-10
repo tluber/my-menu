@@ -6,6 +6,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 import com.acp1.my.menu.presentation.di.base.ViewModelKey
+import com.acp1.my.menu.presentation.ui.access.MyMenuViewModel
 import com.acp1.my.menu.presentation.ui.details.DetailDishViewModel
 import com.acp1.my.menu.presentation.ui.menu.MenuViewModel
 import com.acp1.my.menu.utils.AppViewModelFactory
@@ -21,6 +22,11 @@ abstract class ViewModelModule {
 
     @Binds
     abstract fun bindViewModelFactory(factory: AppViewModelFactory): ViewModelProvider.Factory
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(MyMenuViewModel::class)
+    abstract fun bindMyMenuViewModel(myMenuViewModel: MyMenuViewModel): ViewModel
 
     @Binds
     @IntoMap

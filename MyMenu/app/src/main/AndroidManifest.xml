@@ -15,15 +15,22 @@
             android:supportsRtl="true"
             android:theme="@style/AppThemeLight.NoActionBar"
             android:usesCleartextTraffic="true">
-        <activity android:name=".presentation.ui.details.DetailDishActivity"></activity>
         <activity
-                android:name=".presentation.ui.menu.MenuActivity"
+                android:name=".presentation.ui.access.MyMenuActivity"
                 android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+                android:name=".presentation.ui.details.DetailDishActivity"
+                android:screenOrientation="portrait">
+        </activity>
+        <activity
+                android:name=".presentation.ui.menu.MenuActivity"
+                android:screenOrientation="portrait">
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>

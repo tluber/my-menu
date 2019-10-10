@@ -50,8 +50,9 @@ class MenuActivity : BaseActivity() {
         menuViewModel =
             ViewModelProviders.of(this, viewModelFactory).get(MenuViewModel::class.java)
 
-        setupToolbar(toolbar, R.string.app_name)
+        setupToolbar(toolbar, R.string.menu)
         setSupportActionBar(toolbar)
+        addBackButton(toolbar)
 
         menuRecyclerView.layoutManager =
             LinearLayoutManager(this)

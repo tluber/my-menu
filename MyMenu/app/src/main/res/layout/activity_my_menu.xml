@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/mainView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.ui.access.MyMenuActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimaryDark"
+                app:popupTheme="@style/AppThemeLight.PopupOverlay" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/contentView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <ImageView
+                    android:id="@+id/menuImageView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x16"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/comida2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+
+            <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/x8"
+                    android:text="@string/menu"
+                    android:textColor="@color/colorRed"
+                    android:textSize="@dimen/s34"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/menuImageView"
+                    app:layout_constraintStart_toStartOf="@+id/menuImageView" />
+
+            <ImageView
+                    android:id="@+id/todayMenuImageView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x16"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/comida1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/menuImageView"
+                    tools:ignore="ContentDescription" />
+
+            <TextView
+                    android:id="@+id/todayMenuTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/x8"
+                    android:text="@string/today_menu"
+                    android:textColor="@color/colorRed"
+                    android:textSize="@dimen/s34"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/todayMenuImageView"
+                    app:layout_constraintStart_toStartOf="@+id/todayMenuImageView" />
+
+            <ImageView
+                    android:id="@+id/paymentImageView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x16"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/pagos3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/todayMenuImageView"
+                    tools:ignore="ContentDescription" />
+
+            <TextView
+                    android:id="@+id/paymentTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/x8"
+                    android:text="@string/payments"
+                    android:textColor="@color/colorRed"
+                    android:textSize="@dimen/s34"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/paymentImageView"
+                    app:layout_constraintStart_toStartOf="@+id/paymentImageView" />
+
+            <ImageView
+                    android:id="@+id/suggestionsImageView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x16"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/sugerencias1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/paymentImageView"
+                    tools:ignore="ContentDescription" />
+
+            <TextView
+                    android:id="@+id/suggestionsTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/x8"
+                    android:text="@string/suggestions"
+                    android:textColor="@color/colorRed"
+                    android:textSize="@dimen/s34"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/suggestionsImageView"
+                    app:layout_constraintStart_toStartOf="@+id/suggestionsImageView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <RelativeLayout
+            android:id="@+id/loadingContentView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorTranslucentBlack"
+            android:visibility="gone"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <ProgressBar
+                android:id="@+id/progress"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:indeterminate="true"
+                android:indeterminateTint="?attr/colorPrimaryDark"
+                android:indeterminateTintMode="src_atop" />
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

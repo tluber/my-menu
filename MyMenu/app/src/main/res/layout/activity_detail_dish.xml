@@ -40,23 +40,48 @@
                     android:id="@+id/bannerImage"
                     android:layout_width="0dp"
                     android:layout_height="300dp"
-                    app:placeholderImage="@drawable/placeholder"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:placeholderImage="@drawable/placeholder" />
 
-            <TextView
-                    android:id="@+id/nameTextView"
-                    style="@style/DetailBold"
-                    android:layout_width="0dp"
+            <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/x20"
                     android:layout_marginStart="@dimen/x12"
-                    android:padding="@dimen/x4"
+                    android:layout_marginTop="@dimen/x20"
+                    android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/bannerImage"
-                    tools:text="@tools:sample/full_names" />
+                    app:layout_constraintTop_toBottomOf="@id/bannerImage">
+
+                <TextView
+                        android:id="@+id/nameTextView"
+                        style="@style/DetailBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="@tools:sample/full_names" />
+
+                <ImageView
+                        android:id="@+id/glutenImageView"
+                        android:layout_width="@dimen/x24"
+                        android:layout_height="@dimen/x24"
+                        android:layout_marginStart="@dimen/x30"
+                        android:src="@drawable/ic_gluten_free"
+                        android:visibility="gone"
+                        tools:ignore="ContentDescription" />
+
+                <ImageView
+                        android:id="@+id/veganImageView"
+                        android:layout_width="@dimen/x24"
+                        android:layout_height="@dimen/x24"
+                        android:layout_marginStart="@dimen/x30"
+                        android:src="@drawable/ic_vegan"
+                        android:visibility="gone"
+                        tools:ignore="ContentDescription" />
+
+            </LinearLayout>
 
             <TextView
                     android:id="@+id/descriptionTextView"
@@ -68,7 +93,7 @@
                     android:layout_marginEnd="@dimen/x16"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/nameTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout"
                     tools:text="@tools:sample/lorem" />
 
             <TextView

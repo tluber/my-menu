@@ -20,4 +20,9 @@
 
     <string name="sample_price">$100</string>
 
+    <string name="menu">Menú</string>
+    <string name="today_menu">Menú del día</string>
+    <string name="payments">Medios de pago</string>
+    <string name="suggestions">Sugerencias</string>
+
 </resources>
