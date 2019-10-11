@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/mainView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.ui.menu.TodaysMenuActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimaryDark"
+                app:popupTheme="@style/AppThemeLight.PopupOverlay" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/contentView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <TextView
+                    android:id="@+id/starterTitleTextView"
+                    style="@style/SectionTitleBold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/x16"
+                    android:layout_marginTop="@dimen/x16"
+                    android:layout_marginEnd="@dimen/x16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="@string/starter" />
+
+            <TextView
+                    android:id="@+id/starterTextView"
+                    style="@style/SectionTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/x16"
+                    android:layout_marginTop="@dimen/x16"
+                    android:layout_marginEnd="@dimen/x16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/starterTitleTextView"
+                    tools:text="@tools:sample/lorem" />
+
+            <TextView
+                    android:id="@+id/mainTitleTextView"
+                    style="@style/SectionTitleBold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/x16"
+                    android:layout_marginTop="@dimen/x16"
+                    android:layout_marginEnd="@dimen/x16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/starterTextView"
+                    android:text="@string/main" />
+
+            <TextView
+                    android:id="@+id/mainTextView"
+                    style="@style/SectionTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/x16"
+                    android:layout_marginTop="@dimen/x16"
+                    android:layout_marginEnd="@dimen/x16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/mainTitleTextView"
+                    tools:text="@tools:sample/lorem" />
+
+            <TextView
+                    android:id="@+id/dessertTitleTextView"
+                    style="@style/SectionTitleBold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/x16"
+                    android:layout_marginTop="@dimen/x16"
+                    android:layout_marginEnd="@dimen/x16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/mainTextView"
+                    android:text="@string/dessert" />
+
+            <TextView
+                    android:id="@+id/dessertTextView"
+                    style="@style/SectionTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/x16"
+                    android:layout_marginTop="@dimen/x16"
+                    android:layout_marginEnd="@dimen/x16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/dessertTitleTextView"
+                    tools:text="@tools:sample/lorem" />
+
+            <TextView
+                    android:id="@+id/coffeeTitleTextView"
+                    style="@style/SectionTitleBold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/x16"
+                    android:layout_marginTop="@dimen/x16"
+                    android:layout_marginEnd="@dimen/x16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/dessertTextView"
+                    android:text="@string/coffee" />
+
+            <TextView
+                    android:id="@+id/coffeeTextView"
+                    style="@style/SectionTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/x16"
+                    android:layout_marginTop="@dimen/x16"
+                    android:layout_marginEnd="@dimen/x16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/coffeeTitleTextView"
+                    tools:text="@tools:sample/lorem" />
+
+            <TextView
+                    android:id="@+id/optionsTitleTextView"
+                    style="@style/SectionTitleBold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/x16"
+                    android:layout_marginTop="@dimen/x16"
+                    android:layout_marginEnd="@dimen/x16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/coffeeTextView"
+                    android:text="@string/options" />
+
+            <TextView
+                    android:id="@+id/optionsTextView"
+                    style="@style/SectionTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/x16"
+                    android:layout_marginTop="@dimen/x16"
+                    android:layout_marginEnd="@dimen/x16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/optionsTitleTextView"
+                    tools:text="@tools:sample/lorem" />
+
+            <TextView
+                    android:id="@+id/priceTextView"
+                    style="@style/SectionTitleBold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/x16"
+                    android:layout_marginTop="@dimen/x50"
+                    android:layout_marginEnd="@dimen/x16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/optionsTextView"
+                    tools:text="@string/sample_price" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <RelativeLayout
+            android:id="@+id/loadingContentView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorTranslucentBlack"
+            android:visibility="gone"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <ProgressBar
+                android:id="@+id/progress"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:indeterminate="true"
+                android:indeterminateTint="?attr/colorPrimaryDark"
+                android:indeterminateTintMode="src_atop" />
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

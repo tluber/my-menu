@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.acp1.my.menu.R
 import com.acp1.my.menu.presentation.ui.base.BaseActivity
 import com.acp1.my.menu.presentation.ui.menu.MenuActivity
+import com.acp1.my.menu.presentation.ui.menu.TodaysMenuActivity
 import com.acp1.my.menu.utils.extensions.gone
 import com.acp1.my.menu.utils.extensions.setupSnackbar
 import com.acp1.my.menu.utils.extensions.setupToast
@@ -51,10 +52,12 @@ class MyMenuActivity : BaseActivity() {
         menuImageView.setOnClickListener {
             startActivity(MenuActivity.newIntent(this))
         }
+        todayMenuImageView.setOnClickListener {
+            startActivity(TodaysMenuActivity.newIntent(this))
+        }
     }
 
     private fun setupObservers() {
-
 
         myMenuViewModel.dataLoading.observe(this, Observer<Boolean> { loading ->
             when (loading) {

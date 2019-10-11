@@ -5,6 +5,7 @@ import com.acp1.my.menu.MainActivity
 import com.acp1.my.menu.presentation.ui.access.MyMenuActivity
 import com.acp1.my.menu.presentation.ui.details.DetailDishActivity
 import com.acp1.my.menu.presentation.ui.menu.MenuActivity
+import com.acp1.my.menu.presentation.ui.menu.TodaysMenuActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -28,5 +29,8 @@ abstract class ActivityBuilderModule {
 
     @ContributesAndroidInjector(modules = [FragmentBuilderModule::class])
     abstract fun contributeDetailDishActivity(): DetailDishActivity
+
+    @ContributesAndroidInjector(modules = [FragmentBuilderModule::class])
+    abstract fun contributeTodaysMenuActivity(): TodaysMenuActivity
 
 }

@@ -70,7 +70,6 @@ class MenuActivity : BaseActivity() {
 
     private fun setupObservers() {
 
-
         menuViewModel.dataLoading.observe(this, Observer<Boolean> { loading ->
             when (loading) {
                 true -> loadingContentView.visible(true)

@@ -20,9 +20,18 @@
 
     <string name="sample_price">$100</string>
 
+    <string name="yes">Si.</string>
+    <string name="no">No.</string>
+
     <string name="menu">Menú</string>
     <string name="today_menu">Menú del día</string>
     <string name="payments">Medios de pago</string>
     <string name="suggestions">Sugerencias</string>
+
+    <string name="starter">Entrada</string>
+    <string name="main">Plato Principal</string>
+    <string name="options">Opciones</string>
+    <string name="dessert">Postre</string>
+    <string name="coffee">Café</string>
 
 </resources>

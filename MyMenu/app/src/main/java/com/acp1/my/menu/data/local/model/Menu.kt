@@ -32,11 +32,10 @@ data class Dish(
 
 @Parcelize
 data class TodaysMenu(
-    val starter: String?,
-    val main: String?,
-    val price: String?,
+    val starter: String,
+    val main: String,
+    val price: String,
     val hasDessert: Boolean,
     val hasCoffee: Boolean,
-    val options: String?,
-    val picture: String?
+    val options: String
 ) : Parcelable
