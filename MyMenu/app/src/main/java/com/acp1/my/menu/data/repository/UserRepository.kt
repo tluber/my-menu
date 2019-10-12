@@ -40,49 +40,4 @@ class UserRepository @Inject constructor(
         this.user = null
     }
 
-    suspend fun login(email: String, password: String): Result<LoginDto> {
-
-        val user = LoginDto(
-            data = UserDto(1, "Juan", "Perez", "juan@gmail.com"),
-            status = "success",
-            statusCode = "success",
-            statusMessage = "success"
-        )
-
-        val responseBuilder = Response.Builder()
-        responseBuilder.code(200)
-        responseBuilder.protocol(Protocol.HTTP_1_1)
-        return Result.Ok(user, responseBuilder.build())
-
-
-//        return when (networkHandler.isConnected) {
-//            true -> {
-//                val result = services.login(email, password).awaitResult()
-//                if (result is Result.Ok) {
-//                    updateSession(result.value.data.user, result.value.data.profile)
-//                }
-//
-//                result
-//            }
-//            false, null -> Result.Exception(NetworkConnectionException())
-//        }
-    }
-
-    suspend fun forgotPassword(email: String): Result<StandardResponseDto> {
-        val obj = StandardResponseDto(
-            status = "success",
-            statusCode = "success",
-            statusMessage = "success"
-        )
-        val responseBuilder = Response.Builder()
-        responseBuilder.code(200)
-        responseBuilder.protocol(Protocol.HTTP_1_1)
-        return Result.Ok(obj, responseBuilder.build())
-
-
-//        return when (networkHandler.isConnected) {
-//            true -> services.forgotPassword(email).awaitResult()
-//            false, null -> Result.Exception(NetworkConnectionException())
-//        }
-    }
 }

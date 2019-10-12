@@ -1,78 +1,63 @@
 package com.acp1.my.menu.data.remote.utils
 
+import com.acp1.my.menu.BuildConfig
+import com.acp1.my.menu.data.local.AppPreferences
 import com.facebook.stetho.okhttp3.StethoInterceptor
-import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import com.acp1.my.menu.BuildConfig
-import com.acp1.my.menu.data.local.AppPreferences
+import retrofit2.converter.moshi.MoshiConverterFactory
 
 class ServiceGenerator {
 
     companion object {
 
         private val mLogging = HttpLoggingInterceptor()
-        private var mGsonFactory: GsonConverterFactory? = null
-        private val mHttpClient: OkHttpClient.Builder = OkHttpClient.Builder()
+        private var mMoshiFactory: MoshiConverterFactory? = null
         private var mBuilder: Retrofit.Builder? = null
 
         fun <S> createService(serviceClass: Class<S>): S {
 
-            mHttpClient.let {
+            val httpClient = OkHttpClient.Builder()
+            httpClient.apply {
                 if (BuildConfig.DEBUG) {
                     mLogging.level = HttpLoggingInterceptor.Level.BODY
-                    mHttpClient.addInterceptor(mLogging)
-                    mHttpClient.addNetworkInterceptor(StethoInterceptor())
+                    addInterceptor(mLogging)
+                    addNetworkInterceptor(StethoInterceptor())
                 }
 
-                mHttpClient.addInterceptor { chain ->
+                addInterceptor { chain ->
 
-                    val urlBuilder = chain.request().url().newBuilder()
-
-                    AppPreferences.token?.let {
-                        urlBuilder.addQueryParameter("api_token", it)
-                    }
-
-                    val url = urlBuilder.build()
                     val builder = chain.request().newBuilder()
-                        .addHeader("Accept", "application/json")
-                        .addHeader("Content-type", "application/json")
-                        .addHeader("Connection", "close")
+                        .header("Accept", "application/json")
+                        .header("Content-type", "application/json")
+                        .header("Connection", "close")
 
                     AppPreferences.token?.let {
-                        builder.addHeader("Authorization", it)
+                        builder.header("Authorization", it)
                     }
 
-                    builder.url(url)
                     chain.proceed(builder.build())
-
                 }
-
             }
 
-            if (mGsonFactory == null) {
-
-                val gson = GsonBuilder().create()
-                mGsonFactory = GsonConverterFactory
-                    .create(gson)
+            if (mMoshiFactory == null) {
+                var moshi = Moshi.Builder()
+                    .add(KotlinJsonAdapterFactory())
+                mMoshiFactory = MoshiConverterFactory.create(moshi.build())
             }
-
 
             mBuilder = Retrofit.Builder()
                 .baseUrl(BuildConfig.HOST)
                 .addCallAdapterFactory(CoroutineCallAdapterFactory())
-                .addConverterFactory(mGsonFactory)
+                .addConverterFactory(mMoshiFactory)
 
-
-            val client = mHttpClient.build()
+            val client = httpClient.build()
             val retrofit = mBuilder!!.client(client).build()
             return retrofit.create(serviceClass)
         }
-
     }
-
-
 }
