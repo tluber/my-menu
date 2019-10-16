@@ -79,16 +79,16 @@
                     android:id="@+id/todayMenuTextView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:background="@color/colorTranslucentBlack"
                     android:text="@string/today_menu"
                     android:textAlignment="center"
                     android:textColor="@color/colorWhite"
-                    android:background="@color/colorTranslucentBlack"
                     android:textSize="@dimen/s34"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/todayMenuImageView"
-                    app:layout_constraintStart_toStartOf="@+id/todayMenuImageView"
                     app:layout_constraintEnd_toEndOf="@id/todayMenuImageView"
-                    app:layout_constraintTop_toTopOf="@id/todayMenuImageView"/>
+                    app:layout_constraintStart_toStartOf="@+id/todayMenuImageView"
+                    app:layout_constraintTop_toTopOf="@id/todayMenuImageView" />
 
             <ImageView
                     android:id="@+id/paymentImageView"
@@ -106,16 +106,16 @@
                     android:id="@+id/paymentTextView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:background="@color/colorTranslucentBlack"
                     android:text="@string/payments"
                     android:textAlignment="center"
                     android:textColor="@color/colorWhite"
-                    android:background="@color/colorTranslucentBlack"
                     android:textSize="@dimen/s34"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/paymentImageView"
-                    app:layout_constraintStart_toStartOf="@+id/paymentImageView"
                     app:layout_constraintEnd_toEndOf="@id/paymentImageView"
-                    app:layout_constraintTop_toTopOf="@id/paymentImageView"/>
+                    app:layout_constraintStart_toStartOf="@+id/paymentImageView"
+                    app:layout_constraintTop_toTopOf="@id/paymentImageView" />
 
             <ImageView
                     android:id="@+id/suggestionsImageView"
@@ -133,16 +133,30 @@
                     android:id="@+id/suggestionsTextView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:background="@color/colorTranslucentBlack"
                     android:text="@string/suggestions"
                     android:textAlignment="center"
                     android:textColor="@color/colorWhite"
-                    android:background="@color/colorTranslucentBlack"
                     android:textSize="@dimen/s34"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/suggestionsImageView"
-                    app:layout_constraintStart_toStartOf="@+id/suggestionsImageView"
                     app:layout_constraintEnd_toEndOf="@id/suggestionsImageView"
-                    app:layout_constraintTop_toTopOf="@id/suggestionsImageView"/>
+                    app:layout_constraintStart_toStartOf="@+id/suggestionsImageView"
+                    app:layout_constraintTop_toTopOf="@id/suggestionsImageView" />
+
+            <ImageView
+                    android:id="@+id/promosImageView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x16"
+                    android:layout_marginBottom="@dimen/x16"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/banner_promo"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/suggestionsImageView"
+                    tools:ignore="ContentDescription" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

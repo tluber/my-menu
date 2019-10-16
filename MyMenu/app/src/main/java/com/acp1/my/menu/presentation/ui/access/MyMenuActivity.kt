@@ -11,6 +11,7 @@ import com.acp1.my.menu.R
 import com.acp1.my.menu.presentation.ui.base.BaseActivity
 import com.acp1.my.menu.presentation.ui.menu.MenuActivity
 import com.acp1.my.menu.presentation.ui.menu.TodaysMenuActivity
+import com.acp1.my.menu.presentation.ui.suggest.SuggestionActivity
 import com.acp1.my.menu.utils.extensions.gone
 import com.acp1.my.menu.utils.extensions.setupSnackbar
 import com.acp1.my.menu.utils.extensions.setupToast
@@ -54,6 +55,9 @@ class MyMenuActivity : BaseActivity() {
         }
         todayMenuImageView.setOnClickListener {
             startActivity(TodaysMenuActivity.newIntent(this))
+        }
+        suggestionsImageView.setOnClickListener {
+            startActivity(SuggestionActivity.newIntent(this))
         }
     }
 

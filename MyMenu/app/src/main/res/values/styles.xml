@@ -2,7 +2,7 @@
 
     <!-- Base application theme. -->
     <style name="AppThemeLight" parent="Theme.MaterialComponents.Light">
-        <item name="colorPrimary">#010E55</item>
+        <item name="colorPrimary">#d11000</item>
         <item name="colorPrimaryDark">#d11000</item>
         <item name="colorAccent">#FF8900</item>
 
