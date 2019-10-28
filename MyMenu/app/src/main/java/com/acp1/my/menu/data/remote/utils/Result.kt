@@ -1,5 +1,6 @@
 package com.acp1.my.menu.data.remote.utils
 
+import com.acp1.my.menu.data.remote.model.ApiResponse
 import okhttp3.Response
 import retrofit2.HttpException
 
@@ -7,13 +8,13 @@ import retrofit2.HttpException
  * Sealed class of HTTP result
  */
 @Suppress("unused")
-public sealed class Result<out T : Any> {
+public sealed class Result<out T : ApiResponse> {
     /**
      * Successful result of request without errors
      */
-    public class Ok<out T : Any>(
+    public class Ok<out T : ApiResponse>(
         public val value: T,
-        override val response: Response
+        override val response: Response?
     ) : Result<T>(), ResponseResult {
         override fun toString() = "Result.Ok{value=$value, response=$response}"
     }
@@ -21,11 +22,12 @@ public sealed class Result<out T : Any> {
     /**
      * HTTP error
      */
-    public class Error(
+    public class Error<out T : ApiResponse>(
+        public val value: T?,
         override val exception: HttpException,
-        override val response: Response
-    ) : Result<Nothing>(), ErrorResult, ResponseResult {
-        override fun toString() = "Result.Error{exception=$exception}"
+        override val response: Response?
+    ) : Result<T>(), ErrorResult, ResponseResult {
+        override fun toString() = "Result.Error{value=$value, response=$response}"
     }
 
     /**
@@ -37,14 +39,13 @@ public sealed class Result<out T : Any> {
     ) : Result<Nothing>(), ErrorResult {
         override fun toString() = "Result.Exception{$exception}"
     }
-
 }
 
 /**
  * Interface for [Result] classes with [okhttp3.Response]: [Result.Ok] and [Result.Error]
  */
 public interface ResponseResult {
-    val response: Response
+    val response: Response?
 }
 
 /**
@@ -57,17 +58,17 @@ public interface ErrorResult {
 /**
  * Returns [Result.Ok.value] or `null`
  */
-public fun <T : Any> Result<T>.getOrNull(): T? = (this as? Result.Ok)?.value
+public fun <T : ApiResponse> Result<T>.getOrNull(): T? = (this as? Result.Ok)?.value
 
 /**
  * Returns [Result.Ok.value] or [default]
  */
-public fun <T : Any> Result<T>.getOrDefault(default: T): T = getOrNull() ?: default
+public fun <T : ApiResponse> Result<T>.getOrDefault(default: T): T = getOrNull() ?: default
 
 /**
  * Returns [Result.Ok.value] or throw [throwable] or [ErrorResult.exception]
  */
-public fun <T : Any> Result<T>.getOrThrow(throwable: Throwable? = null): T {
+public fun <T : ApiResponse> Result<T>.getOrThrow(throwable: Throwable? = null): T {
     return when (this) {
         is Result.Ok -> value
         is Result.Error -> throw throwable ?: exception

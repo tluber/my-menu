@@ -1,5 +1,6 @@
 package com.acp1.my.menu.data.remote.utils
 
+import com.acp1.my.menu.data.remote.model.ApiResponse
 import kotlinx.coroutines.CancellableContinuation
 import kotlinx.coroutines.suspendCancellableCoroutine
 import retrofit2.Call
@@ -62,6 +63,20 @@ public suspend fun <T : Any?> Call<T>.awaitResponse(): Response<T> {
     }
 }
 
+private fun <T : ApiResponse> getResult(response: Response<T>): Result<T> {
+    if (response.isSuccessful) {
+        return response.body()?.let {
+            return if (it.isSuccessful()) {
+                Result.Ok(it, response.raw())
+            } else {
+                Result.Error(it, HttpException(response), response.raw())
+            }
+        } ?: Result.Exception(NullPointerException("Response body is null"))
+    } else {
+        return Result.Error(null, HttpException(response), response.raw())
+    }
+}
+
 /**
  * Suspend extension that allows suspend [Call] inside coroutine.
  *
@@ -69,21 +84,12 @@ public suspend fun <T : Any?> Call<T>.awaitResponse(): Response<T> {
  *         casted to [Result.Ok] (success) or [Result.Error] (HTTP error)
  *         and [Result.Exception] (other errors)
  */
-public suspend fun <T : Any> Call<T>.awaitResult(): Result<T> {
+public suspend fun <T : ApiResponse> Call<T>.awaitResult(): Result<T> {
     return suspendCancellableCoroutine { continuation ->
         enqueue(object : Callback<T> {
             override fun onResponse(call: Call<T>?, response: Response<T>) {
                 continuation.resumeWith(runCatching {
-                    if (response.isSuccessful) {
-                        val body = response.body()
-                        if (body == null) {
-                            Result.Exception(NullPointerException("Response body is null"))
-                        } else {
-                            Result.Ok(body, response.raw())
-                        }
-                    } else {
-                        Result.Error(HttpException(response), response.raw())
-                    }
+                    getResult(response)
                 })
             }
 
@@ -103,7 +109,7 @@ private fun Call<*>.registerOnCompletion(continuation: CancellableContinuation<*
         try {
             cancel()
         } catch (ex: Throwable) {
-            //Ignore cancel exception
+            // Ignore cancel exception
         }
     }
 }
