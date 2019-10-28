@@ -30,6 +30,8 @@
     <string name="suggestions">Sugerencias</string>
 
     <string name="comment">Dejanos tu comentario o sugerencia!</string>
+    <string name="email">Email</string>
+    <string name="name">Nombre</string>
 
     <string name="starter">Entrada</string>
     <string name="main">Plato Principal</string>
