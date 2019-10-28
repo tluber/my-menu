@@ -39,4 +39,6 @@
     <string name="dessert">Postre</string>
     <string name="coffee">Café</string>
 
+    <string name="filtros">Filtrar por</string>
+
 </resources>

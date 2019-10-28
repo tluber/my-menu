@@ -30,14 +30,49 @@
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+        <RelativeLayout
+                android:id="@+id/spinnerLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x8"
+                android:layout_marginStart="@dimen/x8"
+                android:layout_marginEnd="@dimen/x8"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_spinner"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <Spinner
+                    android:id="@+id/filterSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/x30"
+                    android:background="@color/colorTransparent"
+                    android:prompt="@string/filtros"
+                    android:spinnerMode="dropdown"
+                    android:textSize="@dimen/s15" />
+
+            <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/x30"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="125dp"
+                    android:src="@drawable/ic_arrow_down"/>
+
+        </RelativeLayout>
+
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/menuRecyclerView"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_marginTop="@dimen/x4"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/spinnerLayout" />
 
         <RelativeLayout
                 android:id="@+id/loadingContentView"
