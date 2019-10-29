@@ -3,6 +3,7 @@ package com.acp1.my.menu.presentation.di.module.builder
 
 import com.acp1.my.menu.MainActivity
 import com.acp1.my.menu.presentation.ui.access.MyMenuActivity
+import com.acp1.my.menu.presentation.ui.access.SplashActivity
 import com.acp1.my.menu.presentation.ui.details.DetailDishActivity
 import com.acp1.my.menu.presentation.ui.menu.MenuActivity
 import com.acp1.my.menu.presentation.ui.menu.TodaysMenuActivity
@@ -20,6 +21,10 @@ abstract class ActivityBuilderModule {
 
     @ContributesAndroidInjector(modules = [FragmentBuilderModule::class])
     abstract fun contributeMainActivity(): MainActivity
+
+    //SPLASH
+    @ContributesAndroidInjector(modules = [FragmentBuilderModule::class])
+    abstract fun contributeSplashActivity(): SplashActivity
 
     //MENU
     @ContributesAndroidInjector(modules = [FragmentBuilderModule::class])
