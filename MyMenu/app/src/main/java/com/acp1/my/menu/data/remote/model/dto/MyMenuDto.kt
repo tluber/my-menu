@@ -7,8 +7,6 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class MenuDto(
     @Json(name = "status") override val status: String,
-    @Json(name = "code") override val statusCode: Int?,
-    @Json(name = "message") override val statusMessage: String?,
     @Json(name = "message") val categories: List<CategoryDto>
 ) : ApiResponse()
 
@@ -22,8 +20,6 @@ data class CategoryDto(
 @JsonClass(generateAdapter = true)
 data class DishesDto(
     @Json(name = "status") override val status: String,
-    @Json(name = "code") override val statusCode: Int?,
-    @Json(name = "message") override val statusMessage: String?,
     @Json(name = "id") val id: String,
     @Json(name = "nombre") val name: String,
     @Json(name = "imagen") val picture: String,
@@ -42,8 +38,6 @@ data class DishDto(
 @JsonClass(generateAdapter = true)
 data class FiltersDto(
     @Json(name = "status") override val status: String,
-    @Json(name = "code") override val statusCode: Int?,
-    @Json(name = "message") override val statusMessage: String?,
     @Json(name = "filtros") val filters: List<FilterDto>?
 ) : ApiResponse()
 
@@ -56,8 +50,6 @@ data class FilterDto(
 @JsonClass(generateAdapter = true)
 data class PromotionsDto(
     @Json(name = "status") override val status: String,
-    @Json(name = "code") override val statusCode: Int?,
-    @Json(name = "message") override val statusMessage: String?,
     @Json(name = "promociones") val promotions: List<PromotionDto>
 ) : ApiResponse()
 
@@ -71,8 +63,6 @@ data class PromotionDto(
 @JsonClass(generateAdapter = true)
 data class PaymentsDto(
     @Json(name = "status") override val status: String,
-    @Json(name = "code") override val statusCode: Int?,
-    @Json(name = "message") override val statusMessage: String?,
     @Json(name = "medios-de-pago") val payments: List<PaymentDto>
 ) : ApiResponse()
 
@@ -86,8 +76,6 @@ data class PaymentDto(
 @JsonClass(generateAdapter = true)
 data class TodayMenuDto(
     @Json(name = "status") override val status: String,
-    @Json(name = "code") override val statusCode: Int?,
-    @Json(name = "message") override val statusMessage: String?,
     @Json(name = "entrada") val starter: OptionDto,
     @Json(name = "plato-principal") val main: OptionDto,
     @Json(name = "precio") val price: String,

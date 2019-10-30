@@ -7,7 +7,5 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class LoginDto(
     @Json(name = "data") val data: UserDto,
-    @Json(name = "status") override val status: String,
-    @Json(name = "code") override val statusCode: Int?,
-    @Json(name = "message") override val statusMessage: String?
+    @Json(name = "status") override val status: String
 ) : ApiResponse()
