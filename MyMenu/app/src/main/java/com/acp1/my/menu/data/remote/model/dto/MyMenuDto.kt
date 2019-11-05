@@ -6,9 +6,8 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class MenuDto(
-    @Json(name = "status") override val status: String,
     @Json(name = "message") val categories: List<CategoryDto>
-) : ApiResponse()
+)
 
 @JsonClass(generateAdapter = true)
 data class CategoryDto(
@@ -24,6 +23,7 @@ data class DishesDto(
     @Json(name = "nombre") val name: String,
     @Json(name = "imagen") val picture: String,
     @Json(name = "precio") val price: String,
+    @Json(name = "descripcion") val description: String,
     @Json(name = "filtros") val filters: List<FilterDto>?
 ) : ApiResponse()
 

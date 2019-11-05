@@ -8,7 +8,7 @@ import retrofit2.http.Query
 
 interface ApiClient {
 
-    @GET("/categoria")
+    @GET("/carta")
     fun getMenu(): Call<MenuDto>
 
     @GET("/plato/{id}")
