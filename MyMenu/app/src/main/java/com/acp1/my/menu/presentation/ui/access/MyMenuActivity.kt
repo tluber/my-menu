@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.viewpager.widget.PagerAdapter
 import com.acp1.my.menu.R
 import com.acp1.my.menu.presentation.ui.base.BaseActivity
 import com.acp1.my.menu.presentation.ui.menu.MenuActivity
@@ -23,6 +24,8 @@ import javax.inject.Inject
 class MyMenuActivity : BaseActivity() {
 
     private val TAG: String = "MY_MENU_ACT"
+    var images: Array<Int> = arrayOf(R.drawable.banner_promo, R.drawable.superville, R.drawable.macro)
+    var adapter: PagerAdapter = SliderAdapter(this, images)
 
     companion object {
         fun newIntent(context: Context): Intent {
@@ -46,6 +49,7 @@ class MyMenuActivity : BaseActivity() {
 
         setupListeners()
         setupObservers()
+        viewpager.adapter = adapter
     }
 
     private fun setupListeners() {
