@@ -39,3 +39,10 @@ data class TodaysMenu(
     val hasCoffee: Boolean,
     val options: String
 ) : Parcelable
+
+@Parcelize
+data class Payment(
+    val id: Int,
+    val name: String,
+    val picture: String
+) : Parcelable

@@ -57,13 +57,8 @@ data class PromotionDto(
 )
 
 @JsonClass(generateAdapter = true)
-data class PaymentsDto(
-    @Json(name = "medios-de-pago") val payments: List<PaymentDto>
-)
-
-@JsonClass(generateAdapter = true)
 data class PaymentDto(
-    @Json(name = "id") val id: String,
+    @Json(name = "id") val id: Int,
     @Json(name = "nombre") val name: String,
     @Json(name = "imagen") val picture: String
 )

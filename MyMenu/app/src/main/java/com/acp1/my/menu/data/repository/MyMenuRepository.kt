@@ -3,6 +3,7 @@ package com.acp1.my.menu.data.repository
 import android.content.Context
 import com.acp1.my.menu.data.remote.ApiClient
 import com.acp1.my.menu.data.remote.model.dto.MenuDto
+import com.acp1.my.menu.data.remote.model.dto.PaymentDto
 import com.acp1.my.menu.data.remote.utils.NetworkConnectionException
 import com.acp1.my.menu.data.remote.utils.NetworkHandler
 import com.acp1.my.menu.data.remote.utils.Result
@@ -16,10 +17,6 @@ class MyMenuRepository @Inject constructor(
     @ApplicationContext val context: Context
 ) {
 
-    //TODO: la cache deberia de ser de HomeDto, si llama a una nueva pagina se agregan los bloques
-    // en la cache y se actualiza el paging. Si se llama a la pagina cero se limpia la cache
-    // y se vuelve a guardar el HomeDto
-
     suspend fun getMenu(): Result<MenuDto> {
         return when (networkHandler.isConnected) {
             true -> {
@@ -28,39 +25,13 @@ class MyMenuRepository @Inject constructor(
             false, null -> Result.Exception(NetworkConnectionException())
         }
     }
-/*
-    suspend fun getBlockDetail(
-        blockId: Int,
-        page: Int = 0,
-        count: Int = 10
-    ): Result<BlockDetailDto> {
+
+    suspend fun getPayments(): Result<List<PaymentDto>> {
         return when (networkHandler.isConnected) {
             true -> {
-                services.getBlockDetail(blockId, page.toString(), count.toString()).awaitResult()
+                services.getPayments().awaitResult()
             }
             false, null -> Result.Exception(NetworkConnectionException())
         }
     }
-
-    suspend fun getRelatedContent(uuid: String): Result<RelatedDto> {
-        return when (networkHandler.isConnected) {
-            true -> {
-                services.getRelatedContent(uuid).awaitResult()
-            }
-            false, null -> Result.Exception(NetworkConnectionException())
-        }
-    }
-
-    suspend fun getPeopleMovies(
-        slug: String,
-        page: Int = 0,
-        count: Int = 10
-    ): Result<SlugMoviesDto> {
-        return when (networkHandler.isConnected) {
-            true -> {
-                services.getPeopleMovies(slug, page.toString(), count.toString()).awaitResult()
-            }
-            false, null -> Result.Exception(NetworkConnectionException())
-        }
-    }*/
 }

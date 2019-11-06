@@ -18,7 +18,7 @@ interface ApiClient {
     fun getFilters(): Call<FiltersDto>
 
     @GET("/medio-de-pago")
-    fun getPayments(): Call<PaymentsDto>
+    fun getPayments(): Call<List<PaymentDto>>
 
     @GET("/promocion")
     fun getPromotions(): Call<PromotionsDto>

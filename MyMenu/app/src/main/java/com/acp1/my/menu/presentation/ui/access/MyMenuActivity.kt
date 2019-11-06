@@ -11,6 +11,7 @@ import com.acp1.my.menu.R
 import com.acp1.my.menu.presentation.ui.base.BaseActivity
 import com.acp1.my.menu.presentation.ui.menu.MenuActivity
 import com.acp1.my.menu.presentation.ui.menu.TodaysMenuActivity
+import com.acp1.my.menu.presentation.ui.payment.PaymentActivity
 import com.acp1.my.menu.presentation.ui.suggest.SuggestionActivity
 import com.acp1.my.menu.utils.extensions.gone
 import com.acp1.my.menu.utils.extensions.setupSnackbar
@@ -39,7 +40,7 @@ class MyMenuActivity : BaseActivity() {
         setContentView(R.layout.activity_my_menu)
 
         myMenuViewModel =
-            ViewModelProviders.of(this, viewModelFactory).get(MyMenuViewModel::class.java)
+            ViewModelProvider(this, viewModelFactory).get(MyMenuViewModel::class.java)
 
         setupToolbar(toolbar, R.string.app_name)
         setSupportActionBar(toolbar)
@@ -58,6 +59,9 @@ class MyMenuActivity : BaseActivity() {
         }
         suggestionsImageView.setOnClickListener {
             startActivity(SuggestionActivity.newIntent(this))
+        }
+        paymentImageView.setOnClickListener {
+            startActivity(PaymentActivity.newIntent(this))
         }
     }
 
