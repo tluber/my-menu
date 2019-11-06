@@ -10,37 +10,33 @@ data class MenuDto(
 
 @JsonClass(generateAdapter = true)
 data class CategoryDto(
-    @Json(name = "id") val id: String,
+    @Json(name = "id") val id: Int,
     @Json(name = "nombre") val name: String,
     @Json(name = "platos") val dishes: List<DishDto>
 )
 
 @JsonClass(generateAdapter = true)
 data class DishesDto(
-    @Json(name = "id") val id: String,
+    @Json(name = "id") val id: Int,
     @Json(name = "nombre") val name: String,
     @Json(name = "imagen") val picture: String,
     @Json(name = "precio") val price: String,
-    @Json(name = "descripcion") val description: String,
+    @Json(name = "descripcion") val description: String?,
     @Json(name = "filtros") val filters: List<FilterDto>?
 )
 
 @JsonClass(generateAdapter = true)
 data class DishDto(
-    @Json(name = "id") val id: String,
+    @Json(name = "id") val id: Int,
     @Json(name = "nombre") val name: String,
     @Json(name = "imagen") val picture: String,
-    @Json(name = "precio") val price: String
-)
-
-@JsonClass(generateAdapter = true)
-data class FiltersDto(
+    @Json(name = "precio") val price: String,
     @Json(name = "filtros") val filters: List<FilterDto>?
 )
 
 @JsonClass(generateAdapter = true)
 data class FilterDto(
-    @Json(name = "id") val id: String,
+    @Json(name = "id") val id: Int,
     @Json(name = "nombre") val name: String
 )
 
@@ -51,7 +47,7 @@ data class PromotionsDto(
 
 @JsonClass(generateAdapter = true)
 data class PromotionDto(
-    @Json(name = "id") val id: String,
+    @Json(name = "id") val id: Int,
     @Json(name = "nombre") val name: String,
     @Json(name = "descripcion") val description: String
 )
@@ -75,6 +71,6 @@ data class TodayMenuDto(
 
 @JsonClass(generateAdapter = true)
 data class OptionDto(
-    @Json(name = "id") val id: String,
+    @Json(name = "id") val id: Int,
     @Json(name = "nombre") val name: String
 )

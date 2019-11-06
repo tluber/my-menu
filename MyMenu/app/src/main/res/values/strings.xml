@@ -40,5 +40,7 @@
     <string name="coffee">Café</string>
 
     <string name="filtros">Filtrar por</string>
+    <string name="vegetarianos">Vegetarianos</string>
+    <string name="celiacos">Celíacos</string>
 
 </resources>

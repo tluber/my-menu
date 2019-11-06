@@ -15,7 +15,7 @@ interface ApiClient {
     fun getDish(@Path("id") id: String): Call<DishesDto>
 
     @GET("/filtro")
-    fun getFilters(): Call<FiltersDto>
+    fun getFilters(): Call<List<FilterDto>>
 
     @GET("/medio-de-pago")
     fun getPayments(): Call<List<PaymentDto>>

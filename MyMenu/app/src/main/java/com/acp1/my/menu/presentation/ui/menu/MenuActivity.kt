@@ -65,12 +65,13 @@ class MenuActivity : BaseActivity() {
         setupListeners()
         setupObservers()
         setupSpinner()
-
-        menuAdapter.refresh(menuViewModel.list)
+        
     }
 
     private fun setupSpinner() {
         filterList.add(resources.getString(R.string.filtros))
+        filterList.add(resources.getString(R.string.vegetarianos))
+        filterList.add(resources.getString(R.string.celiacos))
         //TODO: obtener los filtros del ws y agregarlos a la lista
         val adapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, filterList)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
