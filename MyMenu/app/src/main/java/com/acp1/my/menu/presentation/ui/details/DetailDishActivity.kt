@@ -3,6 +3,7 @@ package com.acp1.my.menu.presentation.ui.details
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -10,6 +11,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.acp1.my.menu.Constants
 import com.acp1.my.menu.R
 import com.acp1.my.menu.data.local.model.Dish
+import com.acp1.my.menu.data.local.model.DishType
 import com.acp1.my.menu.presentation.ui.base.BaseActivity
 import com.acp1.my.menu.utils.extensions.gone
 import com.acp1.my.menu.utils.extensions.setupSnackbar
@@ -61,6 +63,10 @@ class DetailDishActivity : BaseActivity() {
         descriptionTextView.text = dish.description
         priceTextView.text = "${resources.getString(R.string.peso)}${dish.price}"
         bannerImage.setImageURI(dish.picture)
+        when (dish.filters.first().name) {
+            DishType.Veggie.type -> veganImageView.visibility = View.VISIBLE
+            DishType.Celiac.type -> glutenImageView.visibility = View.VISIBLE
+        }
     }
 
     private fun setupListeners() {

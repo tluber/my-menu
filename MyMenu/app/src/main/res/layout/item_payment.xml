@@ -7,8 +7,11 @@
 
     <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/paymentImage"
-            android:layout_width="@dimen/x100"
-            android:layout_height="@dimen/x100"
+            android:layout_width="@dimen/x120"
+            android:layout_height="@dimen/x120"
+            android:layout_marginStart="@dimen/x4"
+            android:layout_marginBottom="@dimen/x4"
+            android:layout_marginTop="@dimen/x4"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
