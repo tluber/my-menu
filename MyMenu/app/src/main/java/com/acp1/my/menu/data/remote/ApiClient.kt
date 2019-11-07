@@ -12,7 +12,7 @@ interface ApiClient {
     fun getMenu(): Call<MenuDto>
 
     @GET("/plato/{id}")
-    fun getDish(@Path("id") id: String): Call<DishesDto>
+    fun getDish(@Path("id") id: String): Call<DishDto>
 
     @GET("/filtro")
     fun getFilters(): Call<List<FilterDto>>

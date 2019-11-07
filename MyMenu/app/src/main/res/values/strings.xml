@@ -19,6 +19,7 @@
     <string name="forgot_pass_title">Forgot your password?</string>
 
     <string name="sample_price">$100</string>
+    <string name="peso">$</string>
 
     <string name="yes">Si.</string>
     <string name="no">No.</string>
@@ -42,5 +43,6 @@
     <string name="filtros">Filtrar por</string>
     <string name="vegetarianos">Vegetarianos</string>
     <string name="celiacos">Celíacos</string>
+    <string name="ninguno">Ninguno</string>
 
 </resources>

@@ -24,21 +24,12 @@ fun CategoryDto.toCategory(): Category {
 
 fun DishDto.toDish(): Dish {
     return Dish(
-        name = this.name,
-        picture = this.picture,
-        price = this.price,
-        description = null,
-        filters = this.filters?.map { it.toFilter() }
-    )
-}
-
-fun DishesDto.toDishes(): Dish {
-    return Dish(
+        id = this.id,
         name = this.name,
         picture = this.picture,
         price = this.price,
         description = this.description,
-        filters = this.filters?.map { it.toFilter() }
+        filters = this.filters.map { it.toFilter() }
     )
 }
 

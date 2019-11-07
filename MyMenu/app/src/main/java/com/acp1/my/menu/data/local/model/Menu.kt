@@ -12,11 +12,12 @@ data class Category(
 
 @Parcelize
 data class Dish(
+    val id: Int,
     val name: String,
     val price: String,
-    val description: String?,
+    val description: String,
     val picture: String,
-    val filters: List<Filter>?
+    val filters: List<Filter>
 ) : Parcelable
 
 @Parcelize

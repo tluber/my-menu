@@ -5,7 +5,7 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class MenuDto(
-    @Json(name = "message") val categories: List<CategoryDto>
+    @Json(name = "categorias") val categories: List<CategoryDto>
 )
 
 @JsonClass(generateAdapter = true)
@@ -16,22 +16,13 @@ data class CategoryDto(
 )
 
 @JsonClass(generateAdapter = true)
-data class DishesDto(
-    @Json(name = "id") val id: Int,
-    @Json(name = "nombre") val name: String,
-    @Json(name = "imagen") val picture: String,
-    @Json(name = "precio") val price: String,
-    @Json(name = "descripcion") val description: String?,
-    @Json(name = "filtros") val filters: List<FilterDto>?
-)
-
-@JsonClass(generateAdapter = true)
 data class DishDto(
     @Json(name = "id") val id: Int,
     @Json(name = "nombre") val name: String,
     @Json(name = "imagen") val picture: String,
     @Json(name = "precio") val price: String,
-    @Json(name = "filtros") val filters: List<FilterDto>?
+    @Json(name = "descripcion") val description: String,
+    @Json(name = "filtros") val filters: List<FilterDto>
 )
 
 @JsonClass(generateAdapter = true)

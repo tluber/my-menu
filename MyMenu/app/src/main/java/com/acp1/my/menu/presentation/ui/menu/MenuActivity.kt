@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.acp1.my.menu.R
+import com.acp1.my.menu.data.local.model.Category
 import com.acp1.my.menu.data.local.model.Dish
 import com.acp1.my.menu.presentation.ui.base.BaseActivity
 import com.acp1.my.menu.presentation.ui.details.DetailDishActivity
@@ -52,7 +53,7 @@ class MenuActivity : BaseActivity() {
         setContentView(R.layout.activity_menu)
 
         menuViewModel =
-            ViewModelProviders.of(this, viewModelFactory).get(MenuViewModel::class.java)
+            ViewModelProvider(this, viewModelFactory).get(MenuViewModel::class.java)
 
         setupToolbar(toolbar, R.string.menu)
         setSupportActionBar(toolbar)
@@ -65,13 +66,15 @@ class MenuActivity : BaseActivity() {
         setupListeners()
         setupObservers()
         setupSpinner()
-        
+
+        menuViewModel.getMenu()
     }
 
     private fun setupSpinner() {
         filterList.add(resources.getString(R.string.filtros))
         filterList.add(resources.getString(R.string.vegetarianos))
         filterList.add(resources.getString(R.string.celiacos))
+        filterList.add(resources.getString(R.string.ninguno))
         //TODO: obtener los filtros del ws y agregarlos a la lista
         val adapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, filterList)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -104,6 +107,11 @@ class MenuActivity : BaseActivity() {
                 true -> loadingContentView.visible(true)
                 false -> loadingContentView.gone(true)
             }
+        })
+
+        menuViewModel.category.observe(this, Observer<List<Category>> { list ->
+
+            menuAdapter.refresh(list)
         })
 
         mainView.setupSnackbar(this, menuViewModel.snackBarMessage, Snackbar.LENGTH_LONG)

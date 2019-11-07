@@ -43,7 +43,7 @@ class DetailDishActivity : BaseActivity() {
         setContentView(R.layout.activity_detail_dish)
 
         detailDishViewModel =
-            ViewModelProviders.of(this, viewModelFactory).get(DetailDishViewModel::class.java)
+            ViewModelProvider(this, viewModelFactory).get(DetailDishViewModel::class.java)
 
         dish = intent.getParcelableExtra<Dish>(Constants.DETAIL)?.apply { setupView(this) }
 
@@ -59,7 +59,7 @@ class DetailDishActivity : BaseActivity() {
 
         nameTextView.text = dish.name
         descriptionTextView.text = dish.description
-        priceTextView.text = dish.price
+        priceTextView.text = "${resources.getString(R.string.peso)}${dish.price}"
         bannerImage.setImageURI(dish.picture)
     }
 
