@@ -22,12 +22,11 @@ data class Dish(
 
 @Parcelize
 data class TodaysMenu(
-    val starter: String,
-    val main: String,
+    val starter: Option,
+    val main: Option,
     val price: String,
-    val hasDessert: Boolean,
-    val hasCoffee: Boolean,
-    val options: String
+    val dessert: Option,
+    val hasCoffee: Boolean
 ) : Parcelable
 
 @Parcelize
@@ -39,6 +38,12 @@ data class Payment(
 
 @Parcelize
 data class Filter(
+    val id: Int,
+    val name: String
+) : Parcelable
+
+@Parcelize
+data class Option(
     val id: Int,
     val name: String
 ) : Parcelable

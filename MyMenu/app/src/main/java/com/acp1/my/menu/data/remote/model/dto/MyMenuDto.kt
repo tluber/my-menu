@@ -56,8 +56,7 @@ data class TodayMenuDto(
     @Json(name = "plato-principal") val main: OptionDto,
     @Json(name = "precio") val price: String,
     @Json(name = "postre") val dessert: OptionDto,
-    @Json(name = "cafe") val hasCoffee: Boolean,
-    @Json(name = "opciones") val options: String
+    @Json(name = "cafe") val hasCoffee: Boolean
 )
 
 @JsonClass(generateAdapter = true)

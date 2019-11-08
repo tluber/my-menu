@@ -46,23 +46,7 @@ class TodaysMenuActivity : BaseActivity() {
         setupListeners()
         setupObservers()
 
-        setupMenu(todaysMenuViewModel.menu)
-    }
-
-    private fun setupMenu(menu: TodaysMenu){
-
-        starterTextView.text = menu.starter
-        mainTextView.text = menu.main
-        when (menu.hasDessert){
-            true -> dessertTextView.text = resources.getString(R.string.yes)
-            false -> dessertTextView.text = resources.getString(R.string.no)
-        }
-        when (menu.hasCoffee){
-            true -> coffeeTextView.text = resources.getString(R.string.yes)
-            false -> coffeeTextView.text = resources.getString(R.string.no)
-        }
-        optionsTextView.text = menu.options
-        priceTextView.text = menu.price
+        todaysMenuViewModel.getTodaysMenu()
     }
 
     private fun setupListeners() {
@@ -76,6 +60,17 @@ class TodaysMenuActivity : BaseActivity() {
                 true -> loadingContentView.visible(true)
                 false -> loadingContentView.gone(true)
             }
+        })
+
+        todaysMenuViewModel.menu.observe(this, Observer<TodaysMenu> { menu ->
+            starterTextView.text = menu.starter.name
+            mainTextView.text = menu.main.name
+            dessertTextView.text = menu.dessert.name
+            when (menu.hasCoffee){
+                true -> coffeeTextView.text = resources.getString(R.string.yes)
+                false -> coffeeTextView.text = resources.getString(R.string.no)
+            }
+            priceTextView.text = menu.price
         })
 
         mainView.setupSnackbar(this, todaysMenuViewModel.snackBarMessage, Snackbar.LENGTH_LONG)

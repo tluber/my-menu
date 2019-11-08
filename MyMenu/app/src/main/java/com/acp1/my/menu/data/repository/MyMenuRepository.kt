@@ -4,6 +4,7 @@ import android.content.Context
 import com.acp1.my.menu.data.remote.ApiClient
 import com.acp1.my.menu.data.remote.model.dto.MenuDto
 import com.acp1.my.menu.data.remote.model.dto.PaymentDto
+import com.acp1.my.menu.data.remote.model.dto.TodayMenuDto
 import com.acp1.my.menu.data.remote.utils.NetworkConnectionException
 import com.acp1.my.menu.data.remote.utils.NetworkHandler
 import com.acp1.my.menu.data.remote.utils.Result
@@ -30,6 +31,15 @@ class MyMenuRepository @Inject constructor(
         return when (networkHandler.isConnected) {
             true -> {
                 services.getPayments().awaitResult()
+            }
+            false, null -> Result.Exception(NetworkConnectionException())
+        }
+    }
+
+    suspend fun getTodaysMenu(): Result<TodayMenuDto> {
+        return when (networkHandler.isConnected) {
+            true -> {
+                services.getTodaysMenu().awaitResult()
             }
             false, null -> Result.Exception(NetworkConnectionException())
         }
