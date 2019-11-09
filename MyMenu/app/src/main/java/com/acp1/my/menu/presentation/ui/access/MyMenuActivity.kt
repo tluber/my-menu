@@ -25,7 +25,7 @@ import javax.inject.Inject
 class MyMenuActivity : BaseActivity() {
 
     private val TAG: String = "MY_MENU_ACT"
-    var images: Array<Int> = arrayOf(R.drawable.banner_promo, R.drawable.superville, R.drawable.macro)
+    var images: Array<Int> = arrayOf(R.drawable.banner_promo, R.drawable.superville, R.drawable.noche_miercoles, R.drawable.macro)
     var adapter: PagerAdapter = SliderAdapter(this, images)
 
     companion object {
