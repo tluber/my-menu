@@ -52,10 +52,10 @@ data class PaymentDto(
 
 @JsonClass(generateAdapter = true)
 data class TodayMenuDto(
-    @Json(name = "entrada") val starter: OptionDto,
-    @Json(name = "plato-principal") val main: OptionDto,
+    @Json(name = "entrada") val starter: DishDto,
+    @Json(name = "plato_principal") val main: DishDto,
     @Json(name = "precio") val price: String,
-    @Json(name = "postre") val dessert: OptionDto,
+    @Json(name = "postre") val dessert: DishDto,
     @Json(name = "cafe") val hasCoffee: Boolean
 )
 

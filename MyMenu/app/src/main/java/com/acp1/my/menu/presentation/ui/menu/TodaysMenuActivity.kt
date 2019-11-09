@@ -62,15 +62,18 @@ class TodaysMenuActivity : BaseActivity() {
             }
         })
 
-        todaysMenuViewModel.menu.observe(this, Observer<TodaysMenu> { menu ->
-            starterTextView.text = menu.starter.name
-            mainTextView.text = menu.main.name
-            dessertTextView.text = menu.dessert.name
-            when (menu.hasCoffee){
-                true -> coffeeTextView.text = resources.getString(R.string.yes)
-                false -> coffeeTextView.text = resources.getString(R.string.no)
+        todaysMenuViewModel.menu.observe(this, Observer<List<TodaysMenu>> { list ->
+            if (list.isNotEmpty()){
+                val menu = list.first()
+                starterTextView.text = menu.starter.name
+                mainTextView.text = menu.main.name
+                dessertTextView.text = menu.dessert.name
+                when (menu.hasCoffee){
+                    true -> coffeeTextView.text = resources.getString(R.string.yes)
+                    false -> coffeeTextView.text = resources.getString(R.string.no)
+                }
+                priceTextView.text = "$${menu.price}"
             }
-            priceTextView.text = menu.price
         })
 
         mainView.setupSnackbar(this, todaysMenuViewModel.snackBarMessage, Snackbar.LENGTH_LONG)

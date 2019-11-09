@@ -24,5 +24,5 @@ interface ApiClient {
     fun getPromotions(): Call<PromotionsDto>
 
     @GET("/menu-del-dia")
-    fun getTodaysMenu(): Call<TodayMenuDto>
+    fun getTodaysMenu(): Call<List<TodayMenuDto>>
 }

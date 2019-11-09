@@ -22,10 +22,10 @@ data class Dish(
 
 @Parcelize
 data class TodaysMenu(
-    val starter: Option,
-    val main: Option,
+    val starter: Dish,
+    val main: Dish,
     val price: String,
-    val dessert: Option,
+    val dessert: Dish,
     val hasCoffee: Boolean
 ) : Parcelable
 

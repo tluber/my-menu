@@ -39,10 +39,10 @@ fun FilterDto.toFilter(): Filter {
 
 fun TodayMenuDto.toTodaysMenu(): TodaysMenu {
     return TodaysMenu(
-        starter = this.starter.toOption(),
-        main = this.main.toOption(),
+        starter = this.starter.toDish(),
+        main = this.main.toDish(),
         price = this.price,
-        dessert = this.dessert.toOption(),
+        dessert = this.dessert.toDish(),
         hasCoffee = this.hasCoffee
     )
 }

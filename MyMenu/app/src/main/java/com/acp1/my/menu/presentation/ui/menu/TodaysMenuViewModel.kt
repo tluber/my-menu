@@ -18,8 +18,8 @@ class TodaysMenuViewModel
 
     private val TAG: String = "TODAYS_MENU_VM"
 
-    private val mMenu = MutableLiveData<TodaysMenu>()
-    val menu: LiveData<TodaysMenu> = mMenu
+    private val mMenu = MutableLiveData<List<TodaysMenu>>()
+    val menu: LiveData<List<TodaysMenu>> = mMenu
 
     fun getTodaysMenu() {
 
@@ -28,7 +28,7 @@ class TodaysMenuViewModel
             when (val result = myMenuRepository.getTodaysMenu()) {
                 // Successful HTTP result
                 is Result.Ok -> {
-                    mMenu.value = result.value.toTodaysMenu()
+                    mMenu.value = result.value.map { it.toTodaysMenu() }
                 }
                 // Any HTTP error
                 is Result.Error -> {

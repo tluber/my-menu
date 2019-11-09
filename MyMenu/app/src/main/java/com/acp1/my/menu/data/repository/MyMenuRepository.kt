@@ -36,7 +36,7 @@ class MyMenuRepository @Inject constructor(
         }
     }
 
-    suspend fun getTodaysMenu(): Result<TodayMenuDto> {
+    suspend fun getTodaysMenu(): Result<List<TodayMenuDto>> {
         return when (networkHandler.isConnected) {
             true -> {
                 services.getTodaysMenu().awaitResult()
