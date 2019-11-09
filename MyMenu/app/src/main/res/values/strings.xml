@@ -45,4 +45,10 @@
     <string name="celiacos">Celíacos</string>
     <string name="ninguno">Ninguno</string>
 
+    <string name="alert">Atención</string>
+    <string name="empty_content">Debe completar todos los campos.</string>
+    <string name="button_ok">OK</string>
+    <string name="bad_request_email">ERROR: Introduzca una dirección de email válida</string>
+    <string name="suggestion_recorded">Sugerencia enviada!</string>
+
 </resources>

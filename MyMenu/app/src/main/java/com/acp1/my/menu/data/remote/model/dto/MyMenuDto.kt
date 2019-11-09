@@ -64,3 +64,11 @@ data class OptionDto(
     @Json(name = "id") val id: Int,
     @Json(name = "nombre") val name: String
 )
+
+@JsonClass(generateAdapter = true)
+data class SuggestDto(
+    @Json(name = "id") val id: Int,
+    @Json(name = "nombre") val name: String,
+    @Json(name = "email") val email: String,
+    @Json(name = "sugerencia") val comment: String
+)

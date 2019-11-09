@@ -3,6 +3,7 @@ package com.acp1.my.menu.presentation.ui.menu
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -63,12 +64,16 @@ class TodaysMenuActivity : BaseActivity() {
         })
 
         todaysMenuViewModel.menu.observe(this, Observer<List<TodaysMenu>> { list ->
-            if (list.isNotEmpty()){
+            if (list.isNotEmpty()) {
+                starterTitleTextView.visibility = View.VISIBLE
+                mainTitleTextView.visibility = View.VISIBLE
+                dessertTitleTextView.visibility = View.VISIBLE
+                coffeeTitleTextView.visibility = View.VISIBLE
                 val menu = list.first()
                 starterTextView.text = menu.starter.name
                 mainTextView.text = menu.main.name
                 dessertTextView.text = menu.dessert.name
-                when (menu.hasCoffee){
+                when (menu.hasCoffee) {
                     true -> coffeeTextView.text = resources.getString(R.string.yes)
                     false -> coffeeTextView.text = resources.getString(R.string.no)
                 }

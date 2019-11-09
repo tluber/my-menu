@@ -1,10 +1,9 @@
 package com.acp1.my.menu.data.remote
 
 import com.acp1.my.menu.data.remote.model.dto.*
+import com.acp1.my.menu.data.remote.model.request.SuggestRequest
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface ApiClient {
 
@@ -25,4 +24,7 @@ interface ApiClient {
 
     @GET("/menu-del-dia")
     fun getTodaysMenu(): Call<List<TodayMenuDto>>
+
+    @POST("/sugerencia/")
+    fun makeSuggestion(@Body body: SuggestRequest): Call<SuggestDto>
 }

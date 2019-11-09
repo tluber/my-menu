@@ -47,3 +47,11 @@ data class Option(
     val id: Int,
     val name: String
 ) : Parcelable
+
+@Parcelize
+data class Suggestion(
+    val id: Int,
+    val name: String,
+    val email: String,
+    val comment: String
+) : Parcelable
