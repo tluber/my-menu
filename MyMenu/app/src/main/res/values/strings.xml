@@ -19,6 +19,7 @@
     <string name="forgot_pass_title">Forgot your password?</string>
 
     <string name="sample_price">$100</string>
+    <string name="peso">$</string>
 
     <string name="yes">Si.</string>
     <string name="no">No.</string>
@@ -40,5 +41,14 @@
     <string name="coffee">Café</string>
 
     <string name="filtros">Filtrar por</string>
+    <string name="vegetarianos">Vegetarianos</string>
+    <string name="celiacos">Celíacos</string>
+    <string name="ninguno">Ninguno</string>
+
+    <string name="alert">Atención</string>
+    <string name="empty_content">Debe completar todos los campos.</string>
+    <string name="button_ok">OK</string>
+    <string name="bad_request_email">ERROR: Introduzca una dirección de email válida</string>
+    <string name="suggestion_recorded">Sugerencia enviada!</string>
 
 </resources>

@@ -53,12 +53,12 @@ android {
         dev {
             versionNameSuffix "-dev"
             manifestPlaceholders = [appName: "${appName}$versionNameSuffix"]
-            buildConfigField 'String', 'HOST', '"http://www.cc.com"'
+            buildConfigField 'String', 'HOST', '"https://acp1-2019-2c.herokuapp.com"'
             buildConfigField 'String', 'API_KEY', '""'
         }
         prod {
             manifestPlaceholders = [appName: "${appName}"]
-            buildConfigField 'String', 'HOST', '"http://www.cc.com"'
+            buildConfigField 'String', 'HOST', '"https://acp1-2019-2c.herokuapp.com"'
             buildConfigField 'String', 'API_KEY', '""'
         }
     }

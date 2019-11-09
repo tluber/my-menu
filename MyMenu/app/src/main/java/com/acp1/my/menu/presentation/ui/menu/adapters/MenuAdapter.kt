@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.acp1.my.menu.R
 import com.acp1.my.menu.data.local.model.Category
+import com.acp1.my.menu.data.local.model.DishType
 import com.acp1.my.menu.presentation.ui.menu.adapters.viewholders.CategoryViewHolder
 import com.acp1.my.menu.presentation.ui.menu.adapters.viewholders.ItemListener
 
@@ -13,6 +14,8 @@ class MenuAdapter(
     private val listener: ItemListener?
 ) :
     RecyclerView.Adapter<CategoryViewHolder>() {
+
+    private var fullList: List<Category> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
 
@@ -35,7 +38,23 @@ class MenuAdapter(
 
     fun refresh(list: List<Category>) {
         categoryList = list
+        fullList = list
         notifyDataSetChanged()
     }
 
+    fun applyFilter(filter: DishType) {
+
+        categoryList = fullList
+        val categories = mutableListOf<Category>()
+        for (category in categoryList) {
+            val dishes = when (filter) {
+                DishType.Veggie -> category.items.filter { it.filters.first().name == DishType.Veggie.type }
+                DishType.Celiac -> category.items.filter { it.filters.first().name == DishType.Celiac.type }
+                DishType.None -> category.items
+            }
+            categories.add(Category(category.id, category.title, dishes))
+        }
+        categoryList = categories
+        notifyDataSetChanged()
+    }
 }

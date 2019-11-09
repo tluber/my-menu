@@ -3,6 +3,7 @@ package com.acp1.my.menu.presentation.ui.menu
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -46,23 +47,7 @@ class TodaysMenuActivity : BaseActivity() {
         setupListeners()
         setupObservers()
 
-        setupMenu(todaysMenuViewModel.menu)
-    }
-
-    private fun setupMenu(menu: TodaysMenu){
-
-        starterTextView.text = menu.starter
-        mainTextView.text = menu.main
-        when (menu.hasDessert){
-            true -> dessertTextView.text = resources.getString(R.string.yes)
-            false -> dessertTextView.text = resources.getString(R.string.no)
-        }
-        when (menu.hasCoffee){
-            true -> coffeeTextView.text = resources.getString(R.string.yes)
-            false -> coffeeTextView.text = resources.getString(R.string.no)
-        }
-        optionsTextView.text = menu.options
-        priceTextView.text = menu.price
+        todaysMenuViewModel.getTodaysMenu()
     }
 
     private fun setupListeners() {
@@ -75,6 +60,24 @@ class TodaysMenuActivity : BaseActivity() {
             when (loading) {
                 true -> loadingContentView.visible(true)
                 false -> loadingContentView.gone(true)
+            }
+        })
+
+        todaysMenuViewModel.menu.observe(this, Observer<List<TodaysMenu>> { list ->
+            if (list.isNotEmpty()) {
+                starterTitleTextView.visibility = View.VISIBLE
+                mainTitleTextView.visibility = View.VISIBLE
+                dessertTitleTextView.visibility = View.VISIBLE
+                coffeeTitleTextView.visibility = View.VISIBLE
+                val menu = list.first()
+                starterTextView.text = menu.starter.name
+                mainTextView.text = menu.main.name
+                dessertTextView.text = menu.dessert.name
+                when (menu.hasCoffee) {
+                    true -> coffeeTextView.text = resources.getString(R.string.yes)
+                    false -> coffeeTextView.text = resources.getString(R.string.no)
+                }
+                priceTextView.text = "$${menu.price}"
             }
         })
 

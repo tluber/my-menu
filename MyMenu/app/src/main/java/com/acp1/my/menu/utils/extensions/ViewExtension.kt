@@ -60,7 +60,7 @@ fun View.makeSnackbar(@StringRes title: Int, timeLength: Int = Snackbar.LENGTH_L
 }
 
 fun View.makeSnackbar(title: String, timeLength: Int = Snackbar.LENGTH_LONG): Snackbar {
-    return makeSnackbar(R.color.colorSecondary, title, R.color.colorWhite, timeLength)
+    return makeSnackbar(R.color.colorWhite, title, R.color.colorBlack, timeLength)
 }
 
 

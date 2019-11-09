@@ -44,10 +44,11 @@
                     android:layout_marginStart="@dimen/x16"
                     android:layout_marginTop="@dimen/x16"
                     android:layout_marginEnd="@dimen/x16"
+                    android:text="@string/starter"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:text="@string/starter" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                     android:id="@+id/starterTextView"
@@ -70,10 +71,11 @@
                     android:layout_marginStart="@dimen/x16"
                     android:layout_marginTop="@dimen/x16"
                     android:layout_marginEnd="@dimen/x16"
+                    android:text="@string/main"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/starterTextView"
-                    android:text="@string/main" />
+                    app:layout_constraintTop_toBottomOf="@id/starterTextView" />
 
             <TextView
                     android:id="@+id/mainTextView"
@@ -96,10 +98,11 @@
                     android:layout_marginStart="@dimen/x16"
                     android:layout_marginTop="@dimen/x16"
                     android:layout_marginEnd="@dimen/x16"
+                    android:text="@string/dessert"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/mainTextView"
-                    android:text="@string/dessert" />
+                    app:layout_constraintTop_toBottomOf="@id/mainTextView" />
 
             <TextView
                     android:id="@+id/dessertTextView"
@@ -122,10 +125,11 @@
                     android:layout_marginStart="@dimen/x16"
                     android:layout_marginTop="@dimen/x16"
                     android:layout_marginEnd="@dimen/x16"
+                    android:text="@string/coffee"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/dessertTextView"
-                    android:text="@string/coffee" />
+                    app:layout_constraintTop_toBottomOf="@id/dessertTextView" />
 
             <TextView
                     android:id="@+id/coffeeTextView"
@@ -141,32 +145,6 @@
                     tools:text="@tools:sample/lorem" />
 
             <TextView
-                    android:id="@+id/optionsTitleTextView"
-                    style="@style/SectionTitleBold"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/x16"
-                    android:layout_marginTop="@dimen/x16"
-                    android:layout_marginEnd="@dimen/x16"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/coffeeTextView"
-                    android:text="@string/options" />
-
-            <TextView
-                    android:id="@+id/optionsTextView"
-                    style="@style/SectionTitle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/x16"
-                    android:layout_marginTop="@dimen/x16"
-                    android:layout_marginEnd="@dimen/x16"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/optionsTitleTextView"
-                    tools:text="@tools:sample/lorem" />
-
-            <TextView
                     android:id="@+id/priceTextView"
                     style="@style/SectionTitleBold"
                     android:layout_width="0dp"
@@ -176,7 +154,7 @@
                     android:layout_marginEnd="@dimen/x16"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/optionsTextView"
+                    app:layout_constraintTop_toBottomOf="@id/coffeeTextView"
                     tools:text="@string/sample_price" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

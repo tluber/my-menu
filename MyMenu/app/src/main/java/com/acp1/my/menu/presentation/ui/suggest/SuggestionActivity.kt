@@ -1,9 +1,11 @@
 package com.acp1.my.menu.presentation.ui.suggest
 
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
@@ -48,6 +50,16 @@ class SuggestionActivity : BaseActivity() {
 
     private fun setupListeners() {
 
+        button.setOnClickListener {
+            when (fieldsAreNotEmpty()) {
+                true -> suggestionViewModel.makeSuggestion(
+                    nameEditText.text.toString(),
+                    emailEditText.text.toString(),
+                    commentEditText.text.toString()
+                )
+                false -> makeDialog()
+            }
+        }
     }
 
     private fun setupObservers() {
@@ -59,7 +71,45 @@ class SuggestionActivity : BaseActivity() {
             }
         })
 
+        suggestionViewModel.success.observe(this, Observer<Boolean> {suggestRecorded ->
+            when (suggestRecorded) {
+                true -> clearFields()
+            }
+        })
+
         mainView.setupSnackbar(this, suggestionViewModel.snackBarMessage, Snackbar.LENGTH_LONG)
         mainView.setupToast(this, suggestionViewModel.toastMessage, Toast.LENGTH_LONG)
+    }
+
+    private fun fieldsAreNotEmpty(): Boolean {
+        return (nameEditText.text.isNotEmpty() &&
+                emailEditText.text.isNotEmpty() &&
+                commentEditText.text.isNotEmpty())
+    }
+
+    private fun clearFields() {
+        nameEditText.text.clear()
+        emailEditText.text.clear()
+        commentEditText.text.clear()
+    }
+
+    private fun makeDialog() {
+
+        val builder = AlertDialog.Builder(this)
+
+        with(builder) {
+            setTitle(R.string.alert)
+            setMessage(R.string.empty_content)
+            setPositiveButton(
+                R.string.button_ok,
+                DialogInterface.OnClickListener(function = finishClick)
+            )
+        }
+        val alert = builder.create()
+        alert.show()
+    }
+
+    private val finishClick = { dialog: DialogInterface, which: Int ->
+        dialog.dismiss()
     }
 }

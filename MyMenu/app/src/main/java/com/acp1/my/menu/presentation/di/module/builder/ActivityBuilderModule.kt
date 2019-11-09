@@ -7,6 +7,7 @@ import com.acp1.my.menu.presentation.ui.access.SplashActivity
 import com.acp1.my.menu.presentation.ui.details.DetailDishActivity
 import com.acp1.my.menu.presentation.ui.menu.MenuActivity
 import com.acp1.my.menu.presentation.ui.menu.TodaysMenuActivity
+import com.acp1.my.menu.presentation.ui.payment.PaymentActivity
 import com.acp1.my.menu.presentation.ui.suggest.SuggestionActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -41,5 +42,8 @@ abstract class ActivityBuilderModule {
 
     @ContributesAndroidInjector(modules = [FragmentBuilderModule::class])
     abstract fun contributeSuggestionActivity(): SuggestionActivity
+
+    @ContributesAndroidInjector(modules = [FragmentBuilderModule::class])
+    abstract fun contributePaymentActivity(): PaymentActivity
 
 }

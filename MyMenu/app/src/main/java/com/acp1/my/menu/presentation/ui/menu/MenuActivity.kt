@@ -9,10 +9,11 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.acp1.my.menu.R
+import com.acp1.my.menu.data.local.model.Category
 import com.acp1.my.menu.data.local.model.Dish
+import com.acp1.my.menu.data.local.model.DishType
 import com.acp1.my.menu.presentation.ui.base.BaseActivity
 import com.acp1.my.menu.presentation.ui.details.DetailDishActivity
 import com.acp1.my.menu.presentation.ui.menu.adapters.MenuAdapter
@@ -52,7 +53,7 @@ class MenuActivity : BaseActivity() {
         setContentView(R.layout.activity_menu)
 
         menuViewModel =
-            ViewModelProviders.of(this, viewModelFactory).get(MenuViewModel::class.java)
+            ViewModelProvider(this, viewModelFactory).get(MenuViewModel::class.java)
 
         setupToolbar(toolbar, R.string.menu)
         setSupportActionBar(toolbar)
@@ -66,12 +67,16 @@ class MenuActivity : BaseActivity() {
         setupObservers()
         setupSpinner()
 
-        menuAdapter.refresh(menuViewModel.list)
+        menuViewModel.getMenu()
     }
 
     private fun setupSpinner() {
+
         filterList.add(resources.getString(R.string.filtros))
-        //TODO: obtener los filtros del ws y agregarlos a la lista
+        filterList.add(DishType.Veggie.type)
+        filterList.add(DishType.Celiac.type)
+        filterList.add(DishType.None.type)
+
         val adapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, filterList)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         filterSpinner.adapter = adapter
@@ -82,7 +87,11 @@ class MenuActivity : BaseActivity() {
                 position: Int,
                 id: Long
             ) {
-                //Toast.makeText(this@MainActivity, filterList[position], Toast.LENGTH_SHORT).show()
+                when (filterList[position]) {
+                    DishType.Veggie.type -> menuAdapter.applyFilter(DishType.Veggie)
+                    DishType.Celiac.type -> menuAdapter.applyFilter(DishType.Celiac)
+                    DishType.None.type -> menuAdapter.applyFilter(DishType.None)
+                }
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
@@ -103,6 +112,11 @@ class MenuActivity : BaseActivity() {
                 true -> loadingContentView.visible(true)
                 false -> loadingContentView.gone(true)
             }
+        })
+
+        menuViewModel.category.observe(this, Observer<List<Category>> { list ->
+
+            menuAdapter.refresh(list)
         })
 
         mainView.setupSnackbar(this, menuViewModel.snackBarMessage, Snackbar.LENGTH_LONG)

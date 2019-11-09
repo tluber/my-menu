@@ -10,6 +10,7 @@ import com.acp1.my.menu.presentation.ui.access.MyMenuViewModel
 import com.acp1.my.menu.presentation.ui.details.DetailDishViewModel
 import com.acp1.my.menu.presentation.ui.menu.MenuViewModel
 import com.acp1.my.menu.presentation.ui.menu.TodaysMenuViewModel
+import com.acp1.my.menu.presentation.ui.payment.PaymentViewModel
 import com.acp1.my.menu.presentation.ui.suggest.SuggestionViewModel
 import com.acp1.my.menu.utils.AppViewModelFactory
 
@@ -49,5 +50,10 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(SuggestionViewModel::class)
     abstract fun bindSuggestionViewModel(suggestionViewModel: SuggestionViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(PaymentViewModel::class)
+    abstract fun bindPaymentViewModel(PaymentViewModel: PaymentViewModel): ViewModel
 
 }

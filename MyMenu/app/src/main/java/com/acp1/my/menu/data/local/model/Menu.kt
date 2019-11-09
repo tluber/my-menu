@@ -10,32 +10,48 @@ data class Category(
     val items: List<Dish>
 ) : Parcelable
 
-/*@Parcelize
-data class Dish(
-    val categoryId: Int?,
-    val id: String?,
-    val name: String?,
-    val description: String?,
-    val price: String?,
-    val isVegan: Boolean,
-    val isCeliac: Boolean,
-    val picture: String?
-) : Parcelable*/
-
 @Parcelize
 data class Dish(
+    val id: Int,
     val name: String,
     val price: String,
     val description: String,
-    val picture: String
+    val picture: String,
+    val filters: List<Filter>
 ) : Parcelable
 
 @Parcelize
 data class TodaysMenu(
-    val starter: String,
-    val main: String,
+    val starter: Dish,
+    val main: Dish,
     val price: String,
-    val hasDessert: Boolean,
-    val hasCoffee: Boolean,
-    val options: String
+    val dessert: Dish,
+    val hasCoffee: Boolean
+) : Parcelable
+
+@Parcelize
+data class Payment(
+    val id: Int,
+    val name: String,
+    val picture: String
+) : Parcelable
+
+@Parcelize
+data class Filter(
+    val id: Int,
+    val name: String
+) : Parcelable
+
+@Parcelize
+data class Option(
+    val id: Int,
+    val name: String
+) : Parcelable
+
+@Parcelize
+data class Suggestion(
+    val id: Int,
+    val name: String,
+    val email: String,
+    val comment: String
 ) : Parcelable

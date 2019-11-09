@@ -16,6 +16,10 @@
             android:theme="@style/AppThemeLight.NoActionBar"
             android:usesCleartextTraffic="true">
         <activity
+                android:name=".presentation.ui.payment.PaymentActivity"
+                android:screenOrientation="portrait">
+        </activity>
+        <activity
                 android:name=".presentation.ui.access.SplashActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.SplashScreen">
@@ -27,10 +31,10 @@
         </activity>
         <activity
                 android:name=".presentation.ui.suggest.SuggestionActivity"
-                android:screenOrientation="portrait"></activity>
+                android:screenOrientation="portrait" />
         <activity
                 android:name=".presentation.ui.menu.TodaysMenuActivity"
-                android:screenOrientation="portrait"></activity>
+                android:screenOrientation="portrait" />
         <activity
                 android:name=".presentation.ui.access.MyMenuActivity"
                 android:screenOrientation="portrait">
@@ -42,10 +46,10 @@
         </activity>
         <activity
                 android:name=".presentation.ui.details.DetailDishActivity"
-                android:screenOrientation="portrait"></activity>
+                android:screenOrientation="portrait" />
         <activity
                 android:name=".presentation.ui.menu.MenuActivity"
-                android:screenOrientation="portrait"></activity>
+                android:screenOrientation="portrait" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
