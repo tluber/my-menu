@@ -48,8 +48,8 @@ class MenuAdapter(
         val categories = mutableListOf<Category>()
         for (category in categoryList) {
             val dishes = when (filter) {
-                DishType.Veggie -> category.items.filter { it.filters.first().name == DishType.Veggie.type }
-                DishType.Celiac -> category.items.filter { it.filters.first().name == DishType.Celiac.type }
+                DishType.Veggie -> category.items.filter { dish -> dish.filters.any { type -> type.name == DishType.Veggie.type } }
+                DishType.Celiac -> category.items.filter { dish -> dish.filters.any { type -> type.name == DishType.Celiac.type } }
                 DishType.None -> category.items
             }
             categories.add(Category(category.id, category.title, dishes))
